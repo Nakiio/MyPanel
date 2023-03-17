@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Snake</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="canvasBorder" id="canvasBorder">
+		<img class="apple" src="apple.png">
+		<h2 id="appleEat">0</h2>
+		<img id="snake" class="snake" src="snake.png">
+		<h2 id="sankeSize">8</h2>
+		<canvas id="canvas"></canvas>
+	</div>
+	<div class="transparentBack" id="transparentBack">
+		<div class="playDiv" id="playDiv">
+			<img id="appleResult" src="apple.png">
+			<h2 id="appleEatResult">0</h2>
+			<img id="snakeResult" class="snake" src="snake.png">
+			<h2 id="sankeSizeResult">8</h2>
+			<h1 id="gameMode">Play Snake</h1>
+			<input type="button" value="Play" id="playButton">
+		</div>
+	</div>
+	<script type="module">
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		var snake = {'x':50,'y':50,'width':20,'height':10,'direction':'droite'};
+		var apple = {'x':150,'y':50,'width':20,'height':10};
+		const timer = ms => new Promise(res => setTimeout(res,ms))
+		var isGaming = false;
+		var playButton = document.getElementById('playButton');
+		var appleEat = 0;
+
+
+		playButton.addEventListener('click', function() {playGame()});
+		document.addEventListener('keydown', function(e) {
+			if(isGaming){
+				if (e.which === 37) {
+				  snake['direction'] = 'gauche'
+				}else if (e.which === 38) {
+				  snake['direction'] = 'haut'
+				}else if (e.which === 39) {
+				  snake['direction'] = 'droite';
+				}else if (e.which === 40) {
+				  snake['direction'] = 'bas';
+				}
+		  	}
+		});	
+		for(let i = 0; i < 1000; i++){	
+			await timer(50);
+			if(isGaming){
+				run(snake['direction'])
+			}
+		}
+		
+
+		function run(direction){
+			getColision();
+			if(direction === "bas"){
+				snake['y'] = snake['y'] + 5;
+			}else if(direction === "droite"){
+				snake['x'] = snake['x'] + 10;
+			}else if(direction === "gauche"){
+				snake['x'] = snake['x'] - 10;
+			}else if(direction === "haut"){
+				snake['y'] = snake['y'] - 5;
+			}
+			context.fillStyle = '#24A8A0';
+			context.fillRect(0,0,canvas.width,canvas.height)
+			context.fillStyle = 'blue';
+			context.fillRect(snake['x'],snake['y'],snake['width'],snake['height']);
+			context.fillStyle = 'red'
+			context.fillRect(apple['x'], apple['y'],apple['width'],apple['height'])
+
+			var previousImg = document.getElementById("appleGame");
+		    if (previousImg) {
+		      previousImg.parentNode.removeChild(previousImg);
+		    }
+		  	var img = document.createElement('img');
+		  	img.src = "apple.png";
+		  	var appleX = (window.innerWidth - canvas.width) / 2 + apple['x'];
+		  	var appleY= (window.innerHeight - canvas.height) / 2 + apple['y'] - 5;
+		  	img.style = 
+		  	"position:absolute;" + 
+		  	"top:" + appleY + "px;" + 
+		  	"left:" + appleX + "px;";  
+		  	img.id = "appleGame";
+		  	document.getElementById("canvasBorder").appendChild(img);
+
+		}
+
+
+		function playGame(){
+			document.getElementById('transparentBack').style = "display:none;";
+			isGaming = true;
+			snake['x'] = 50;
+			snake['y'] = 50;
+			snake['direction'] = 'droite';
+			apple['x'] = 150;
+			apple['y'] = 50;
+			appleEat = 0;
+		}
+
+		function lost(){
+			document.getElementById('transparentBack').style = "display:block;";
+			document.getElementById('gameMode').innerHTML = "game over";
+			var snakeSize = appleEat + 8;
+			document.getElementById('sankeSizeResult').innerHTML =  snakeSize;
+			document.getElementById('appleEatResult').innerHTML = appleEat;
+
+			document.getElementById('sankeSize').innerHTML =  8;
+			document.getElementById('appleEat').innerHTML = 0;
+			isGaming = false;
+		}
+
+		function getRandomInt(min, max) {
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+
+		function getColision(){
+			if(snake['x'] < 0 || snake['y'] < 0 || snake['x'] + snake['width'] > canvas.width || snake['y'] + snake['height'] > canvas.height){
+			  lost();
+			}
+
+			if (snake['x'] < apple['x'] + apple['width'] 
+			&& snake['x'] + snake['width'] > apple['x']
+			&& snake['y'] < apple['y'] + apple['height'] 
+			&& snake['y'] + snake['height'] > apple['y']) {
+				appleEat += 1;
+			    var snakeSize = appleEat + 8;
+			    document.getElementById('sankeSize').innerHTML =  snakeSize;
+			    document.getElementById('appleEat').innerHTML = appleEat;
+				apple['x'] = getRandomInt(apple['width'], canvas.width - apple['width']);
+				apple['y'] = getRandomInt(apple['height'], canvas.height - apple['height']);
+			}
+		}
+		
+	</script>
+
+</body>
+</html>
