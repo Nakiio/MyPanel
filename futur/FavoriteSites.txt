@@ -1,0 +1,5 @@
+{"name":"youtube","url":"https://youtube.com","imageUrl":"https://youtube.com/favicon.ico"}
+{"name":"netflix","url":"https://www.netflix.com/watch/81517709?trackId=155573558","imageUrl":"https://www.netflix.com/favicon.ico"}
+{"name":"deezer","url":"https://www.deezer.com/fr/playlist/51917423","imageUrl":"https://www.deezer.com/favicon.ico"}
+{"name":"deezer","url":"https://www.deezer.com/fr/album/417915767","imageUrl":"https://www.deezer.com/favicon.ico"}
+{"name":"developer","url":"https://developer.mozilla.org/fr/docs/Web/CSS/text-decoration","imageUrl":"https://developer.mozilla.org/favicon.ico"}

@@ -1,0 +1,352 @@
+
+:root {
+  --w: 0px;
+  --background-color: #fff;
+  --color-1:	#000;
+	--color-2:	#000;
+	--color-3:	#000;
+	--color-4:	#000;
+	--color-5:	#000;
+	--color-6:	#000;
+}
+html{
+	font-family: 'Helvetica Neue', sans-serif;
+}
+.desktop {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width:100vw;
+  height:100vh;
+  z-index: 1;
+}
+.backgroundImage {
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+}
+.blackRect{
+  background: linear-gradient(180deg, rgba(17, 14, 14, 0) 0%, #0D0D0D 93.98%);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 50;
+  left: 0;
+  z-index: 2;
+}
+
+#canvas{
+  position: absolute;
+  top: 3%;
+  height: var(--canvasSize);
+  left: 10%;
+  width: var(--sizeCanvasX);
+  animation: opacity 4s;
+}
+
+.selectRect{
+  border: 1px dotted #000;
+  position: absolute;
+}
+
+.middle{
+	position:absolute;
+	top:var(--topMiddle);
+	width: var(--sizeX);
+	min-height: 2000px;
+	height:1200px;
+	background: #0D0D0D;
+	left:0px;
+	bottom: 0px;
+}
+
+
+/* Class ajouté quand on dragge */
+.oWdgCursorDrag{border-color:red;
+} 
+
+.bar {
+	background-color: rgba(0, 0, 0, 0.6);
+	border-radius: 20px;
+	position: relative;
+	width: 1030px;
+	height: 70px;
+	top: var(--yBar);
+	left: 50%;
+  transform: translateX(-50%);
+  animation: PopUp 3s;
+  display: flex;
+
+
+}
+@keyframes PopUp{
+	from{
+		transform: translateY(300px) translate(-50% , 0%);
+		opacity: 0;
+	}
+	to{
+		transform: translateY(0px) translate(-50% , 0%);
+		opacity: 1;
+	}
+}
+
+@keyframes opacity{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+
+.footerDesktop{
+	position: absolute;
+	width: 100%;
+	height: 150px;
+	top: var(--yScroll);
+	animation: opacity 4s;
+}
+#partFooterDesktop{
+	position: absolute;
+	width: 700px;
+	top: 0px;
+	height: 150px;
+	border-top: 5px solid #fff;
+}
+.leftPart{left: 9%;}
+.rightPart{left: 56%;}
+
+#partFooterDesktop a{
+	font-family: Modak;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	color: #000;
+	top: 50px;
+	position: absolute;
+	width: auto;
+	font-size: 25px;
+	text-decoration: none;
+}
+
+
+#partFooterDesktop a:hover{
+	color: #ccc;
+}
+
+#partFooterDesktop a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ccc;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+#partFooterDesktop a:hover::before {
+  transform: scaleX(1);
+}
+.firstNav{left: 10%; }
+.secondNav{left: 43%; }
+.therdNav{left: 76%; }
+
+
+.scrolldown{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 130px;
+	left: 49%;
+	transform: translateY(-80px) translateX(50%) rotate(45deg);
+}
+.scrolldown span{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-bottom:2px solid #fff;
+	border-right:2px solid #fff;
+	animation: animate 1.5s linear infinite;
+	opacity: 0;
+
+}
+
+.scrolldown span:nth-child(1){
+	transform: translate(-15px,-15px);
+	animation-delay: -0.4s;
+}
+.scrolldown span:nth-child(2){
+	transform: translate(0,0);
+	animation-delay: -0.2s;
+}
+.scrolldown span:nth-child(3){
+	transform: translate(15px,15px);
+	animation-delay: 0s;
+}
+
+@keyframes animate{
+	0%{
+		top: -5px;
+		left: -5px;
+		opacity: 0;
+	}
+	25%{
+		top: 0px;
+		left: 0px;
+		opacity: 1;
+	}
+	100%{
+		top: 5px;
+		left: 5px;
+		opacity: 0;
+	}
+}
+
+body div div {
+	justify-content: space-around;
+  position: absolute;
+
+}
+body .bar div {position: relative;
+	width: 40px;
+	top: 15px;
+}
+body .bar div:hover {transform: scale(1.5);}
+
+.optionbutton:hover{
+	background-color: #6C6363;
+}
+
+.desktopFiles:hover{
+	background: rgba(15,131,239,0.5);
+	border: 1px solid #0047FF;
+}
+
+#inputTextTerminal{
+	caret-color: black;
+}
+#inputTextTerminal:focus{
+	outline: none;
+ 	border-color: none;
+ 	background-color: #fff;
+}
+
+.optionButton{
+	font-size:15px;
+	position: relative;
+	width: 150px;
+	height: 30px;
+	border: none;
+	background-color: #0D0D0D;
+	padding: 5px;
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+	text-align: center;
+	margin-left: 5px;
+}
+
+.optionbutton:hover{
+	color: #888;
+	background-color: #0D0D0D;
+	cursor: pointer;
+}
+
+#backRGBA {
+	display: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+  }
+  
+  #widgetMenu {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #0D0D0D;
+    width: 65%;
+    height: 70%;
+    border-radius: 25px;
+    position: relative;
+  }
+  
+  #titleWidgetMenu{
+  	position: relative;
+    font-size: 23px;
+    top: 10px;
+    margin-left: 50px;
+    color: #888;
+  }
+  
+  #line {
+    height: 2px;
+    width: 70%;
+    top: 50px;
+    left: 50px;
+    position: absolute;
+    background: #090808;
+  }
+  
+  #exit {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    left: 96%;
+    position: absolute;
+    top: 8px;
+    font-size: 18px;
+    background-color: #00C3A0;
+    text-align: center;
+    color: white;
+    border: 1px solid #201B22;
+  }
+  
+  #reduct {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    left: 92%;
+    position: absolute;
+    top: 8px;
+    font-size: 20px;
+    background-color: #13EFE2;
+    text-align: center;
+    color: white;
+    border: 1px solid #201B22;
+  }
+  
+  #widgetMenuBody {
+    width: 96%;
+    height: 580px;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 70px;
+    left: 50px;
+  }
+  
+  #exit:hover {
+    background-color: #1385EF;
+    cursor: pointer;
+  }
+  
+  #reduct:hover {
+    background-color: #156045;
+    cursor: pointer;
+  }
+  .widget{
+  	resize: both;
+  	overflow: auto;
+  	overflow-x: hidden;
+  }
+  .widget:hover{
+  	opacity: 0.6;
+  	cursor: grab;
+  }
+
