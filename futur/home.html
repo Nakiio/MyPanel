@@ -1,0 +1,101 @@
+<?php
+$title = "MyPanel";
+include('../php/authentification.php');
+?>
+
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title><?= $title ?></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="../widgets/Desktop.js"></script>
+  <meta charset="UTF-8">
+</head>
+
+<body style="overflow-x: hidden;">
+  
+    <div class="desktop">
+      <img id="backgroundImage">
+      <div class="blackRect" id="blackRect">
+        <div id="search">
+          <input type="text" id='googleSearch' placeholder="Entrer votre recherche internet....">
+          <img id="louppe" src="https://icones.pro/wp-content/uploads/2021/06/icone-loupe-gris.png">
+        </div>
+        <div class="canvas" id="canvas">
+          <div id="selectRect"></div>
+        </div>
+        <script type="text/javascript">show_desktop_files(document.getElementById("canvas"),'/data/desktop/');</script>
+        <div class="image-bar">
+          <img id="alldocs" src="../images/AllDocs.png">
+          <img id="caja" src="../images/caja.png">
+          <img id="discord" src="../images/discord.png">
+          <img id="deezer" src="../images/deezer.png">
+          <img id="firefox" src="../images/firefox.png">
+          <img id="gimp" src="../images/gimp.png">
+          <img id="gnome-terminal" src="../images/gnome-terminal.png">
+          <img id="google" src="../images/google.png">
+          <img id="heroic" src="../images/heroic.png">
+          <img id="idea" src="../images/idea.png">
+          <img id="konsole" src="../images/konsole.png">
+          <img id="libreoffice" src="../images/libreoffice.png">
+          <img id="minecraft" src="../images/minecraft.png">
+          <img id="nautilus" src="../images/nautilus.png">
+          <img id="shotcut" src="../images/shotcut.png">
+          <img id="steam" src="../images/steam.png">
+          <img id="sublimetext" src="../images/sublimetext.png">
+          <img id="tor" src="../images/tor.png">
+          <img id="vscode"src="../images/vscode.png">
+          <img id="cajaAdmin" src="../images/cajaAdmin.png">
+        </div>
+        <div class="footerDesktop">
+          <div id="partFooterDesktop" class="leftPart">
+            <a class="firstNav nav" id='infos'>&#x2606;  Infos</a>
+            <a class="secondNav nav" id='widgets'>&#x2637; Widgets</a>
+            <a class="therdNav nav" id='mouve'>&#x2221; Déplacer</a>
+          </div>
+          <div class="scrolldown">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div id="partFooterDesktop" class="rightPart">
+            <a class="firstNav nav" id='save'>&#x2662; Sauvegarder</a>
+            <a class="secondNav nav" id='settings'>&#x22C7; Thème</a>
+            <a class="therdNav nav" id='leave'>&#x2639; Quitter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="middle" id="middle"></div>
+
+    <div id="backRGBA">
+      <div id="widgetMenu">
+        <h1 id="titleWidgetMenu">Widget Menu</h1>
+        <span id="line"></span>
+        <input id="exit" type="button" value="x" onclick="closeWidgetMenu()">
+        <input id="reduct" type="button" value="-" onclick="closeWidgetMenu()">
+        <div id="widgetMenuBody"></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../widgets/Desktop.js"></script>
+    <script type="text/javascript" src="../widgets/timeWidget.js"></script>
+    <script type="text/javascript" src="../widgets/separationHorizWidget.js"></script>
+    <script type="text/javascript" src="../widgets/separationVertiWidget.js"></script>
+    <script type="text/javascript" src="../widgets/meteoWidget.js"></script>
+    <script type="text/javascript" src="../widgets/batteryWidget.js"></script>
+    <script type="text/javascript" src="../widgets/imageWidget.js"></script>
+    <script type="text/javascript" src="../widgets/songWidget.js"></script>
+    <script type="text/javascript" src="../widgets/projectWidget.js"></script>
+    <script type="text/javascript" src="../widgets/calculatorWidget.js"></script>
+    <script type="text/javascript" src="../widgets/favoriteSiteswidget.js"></script>
+    <script type="text/javascript" src="../widgets/listWidget.js"></script>
+    <script type="text/javascript" src="../widgets/dezzerWidget.js"></script>
+    <script type="text/javascript" src="../widgets/calendarWidget.js"></script>
+    <script type="text/javascript" src="addNewWidget.js"></script>
+</body>
+</html>
+

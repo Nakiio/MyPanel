@@ -1,0 +1,145 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+	@font-face {
+	  font-family: 'game over';
+	  src: url('GALACTIC VANGUARDIAN NCV.otf') format('truetype');
+	  /* Ajoutez d'autres formats de police ici si nécessaire */
+	  font-weight: normal;
+	  font-style: normal;
+	}
+  body {
+    background: #282626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  canvas {
+    width: 90%;
+    height: 90%;
+  	margin: 5%;
+    border: 1px solid white;
+    background: #24A8A0;
+    box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  #gameMode{
+  	font-family: 'game over', sans-serif;
+  	color: red;
+  	position: absolute;
+  	font-size: 70px;
+  	top: 50px;
+  	text-align: center;
+  }
+
+  #sankeSize{
+  	color: white;
+  	position: absolute;
+  	font-size: 30px;
+ 		margin-top: 7px;
+  	margin-left: 13%;
+  }
+
+  #appleEat{
+  	color: white;
+  	position: absolute;
+  	font-size: 30px;
+  	margin-top: 7px;
+  	margin-left: 6%;
+  }
+  .canvasBorder{
+  	height: 95%;
+  	width: 60%;
+    background: #2C6976;
+  }
+  .apple{
+  	margin-top: 5px;
+  	position: absolute;
+  	margin-left: 3%;
+  }
+  #snake{
+  	margin-top: 5px;
+  	position: absolute;
+  	margin-left: 10%;
+  }
+  .appleGame{
+  	position: absolute;
+  	top: 320px;
+  	left: 320px;
+  }
+  .playDiv{
+  	width: 400px;
+  	height: 600px;
+  	position: absolute;
+  	left: 50%;
+  	top: 50%;
+  	transform: translate(-50%,-50%);
+  	background: #2C6976;
+  	border-radius: 20px;
+  	display: inline;
+  }
+  .playDiv::before{
+  	content: '';
+  	position: absolute;
+  	bottom: 0%;
+  	left: 0;
+  	width: 100%;
+  	height: 30%;
+  	background-color: #24A8A0;
+  	border-radius: 0px 0px 20px 20px;
+  }
+  .transparentBack{
+  	top: 0;
+  	left: 0;
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+  	background-color: rgba(0, 0, 0, 0.7);
+  }
+  input{
+  	bottom: 10%;
+  	position: absolute;
+  	width: 60%;
+  	border-radius: 35px;
+  	left: 50%;
+  	transform: translateX(-50%);
+  	background: #1D607C;
+  	height: 10%;
+  	font-size: 25px;
+  	border: none;
+  	color: white;
+
+  }
+  input:hover{
+  	background: #31E3AE;
+  }
+
+  #sankeSizeResult{
+  	font-size: 30px;
+  	position: absolute;
+  	margin-top: 245px;
+  	margin-left: 63%;
+  	color: white;
+
+  }
+  #appleEatResult{
+  	font-size: 30px;
+  	position: absolute;
+  	margin-top: 245px;
+  	margin-left: 43%;
+  	color: white;
+  	
+  }
+  #snakeResult{
+  	position: absolute;
+  	margin-top: 240px;
+  	margin-left: 50%;
+  	
+  }
+  #appleResult{
+  	position: absolute;
+  	margin-top: 240px;
+  	margin-left: 30%;
+  	
+  }
